@@ -88,6 +88,37 @@
     return;
   }
 
+  // how the sites were made, for an administrator (Marcos 11/19: "maybe a short explanation for admin on top of full page
+  // explaining how these sites were created"); the admin view only
+  const made = document.getElementById('made');
+  made.innerHTML = `<p class="how-head">How these sites were made</p>
+     <ul>
+       <li><b>📐 Modeled on the real test</b> — each site matches the real test's passage length, reading level, vocabulary, and how the questions and answer choices are specifically worded, in the same answer formats: pick one answer, select two, Part A and Part B, click a sentence in the passage, type the answer, or mark a True/False table. On the Grade 3, 5 and 6 sites and Fractions, even the wrong answers are planned: they are the same kinds of mistakes the real test uses, and each one comes with a short note on why it's wrong.</li>
+       <li><b>✍️ Written new</b> — every passage and question is original. Nothing is copied from the real test.</li>
+       <li><b>🔊 Read aloud</b> — a recorded computer voice reads the questions, answer choices and passages, so a student who struggles to read can still practice the thinking the test asks for. Students who get text-to-speech or read-aloud on the real test practice with it here too.</li>
+       <li><b>✅ Tested before every change</b> — each time a site is updated, a computer first clicks through it the way a student and a teacher would, to make sure nothing broke.</li>
+     </ul>
+     <p class="how-head how-sets">Warm Up → Review → Test A → Test B</p>
+     <p class="how-note">How students move through the Grade 3, 5 and 6 sites and Grade 5 Fractions:</p>
+     <ul>
+       <li><b>🌱 Warm Up</b> — start here: the gentlest set, with 💡 reminders read aloud. 2 takes; take 2 has new passages (or new numbers in math).</li>
+       <li><b>📘 Review</b> — a step up from the Warm Up. 2 takes, the second one new.</li>
+       <li><b>📝 Test A and Test B</b> — just like the real test in length, difficulty and question types. 1 take each.</li>
+       <li><b>🪜 Each set a step harder</b> — in reading, the Warm Up's passages are about two-thirds as long as the test's and about two grade levels easier to read; the Review's are about 80% as long and about one grade level easier; Test A and Test B match the real test. Fractions runs easiest to hardest the same way, starting with friendlier numbers.</li>
+       <li><b>🔓 In order</b> — each set opens when the one before it is finished. An extra take, starting a set early, or starting over needs the teacher's PIN.</li>
+       <li><b>4️⃣ Grade 4 sites</b> — built earlier, with their own sets: Place Value and Inferences (Literary) have Forms A, B and C; Read Literary Texts has a Warm Up and Forms A, B and C; Base Ten has a Warm-Up, Practice, and Test Forms A and B.</li>
+     </ul>
+     <p class="how-head how-sets">Built for the classroom</p>
+     <ul>
+       <li><b>🔀 Each student's own order</b> (Grades 3, 5 and 6) — the passages start in a different place for each student and every question's answer choices are mixed, so neighbors' screens don't match. A student's order stays the same on any computer.</li>
+       <li><b>💡 The right answer and why</b> (Grades 3, 5 and 6 and Fractions) — after every question, students read why their answer is right or wrong before going on.</li>
+       <li><b>💾 Saved after every question</b> (Grades 3, 5 and 6 and Fractions) — a student can stop and keep going later. The teacher's Class Scores shows who is working now, on which question, how many right and wrong, and heat maps by question and by skill or standard.</li>
+       <li><b>✏️ Name check</b> (Grades 3, 5 and 6 and Fractions) — students type their name and confirm "Is this your name?" A teacher can fix a misspelled name with her PIN.</li>
+       <li><b>🖨️ Printable answer key</b> — on every site's teacher screen.</li>
+       <li><b>🏫 Tests at school only</b> (both Base Ten sites) — the test forms open only when the teacher turns them on, and then only during school hours.</li>
+     </ul>`;
+  made.hidden = false;
+
   const grades = [...new Set(shown.map(s => s.grade))].sort((a, b) => a - b);
   document.getElementById('grades').innerHTML = grades.map(g => {
     const list = shown.filter(s => s.grade === g).sort((a, b) => day(a.window[0]) - day(b.window[0]));
