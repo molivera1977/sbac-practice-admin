@@ -4,8 +4,9 @@
    Opened with the teacher/admin code (…/?share=<code>), each card opens that site's TEACHER / ADMIN guest view (its
    teacher screen with no PIN, nothing saved; "Try it as a student" is in there) and gives EACH TEACHER'S CLASS LINK, the
    real link she hands her students (Marcos 11/19: "the specific link for each teacher … get rid of the separate Student
-   View link since the student view can be seen in the Teacher/Admin link"). Opened without it, the cards offer the
-   student guest view only (no class links). The code is never written in this public page: it rides in the link Mr. O sends, and the page hands
+   View link since the student view can be seen in the Teacher/Admin link"). Opened without it (no code, the student
+   code or a wrong one): no sites at all, only "Use the admin link" (Marcos 11/19: "Yes, only that" — the plain page's
+   student guest buttons looked like the admin page and led him to a student guest view). The code is never written in this public page: it rides in the link Mr. O sends, and the page hands
    it on; only its fingerprint is here, the same one every site's share.js checks (site-tests holds them equal). */
 (function () {
   'use strict';
@@ -67,10 +68,8 @@
 
   function cardHTML(s) {
     const w = windowNote(s.window);
-    const buttons = ADMIN
-      ? `<a class="btn btn-teacher" href="${esc(teacherLink(s.repo))}" target="_blank" rel="noopener">🧑‍🏫 Teacher / admin view</a>
-         ${s.teachers.map(t => `<a class="btn btn-class" href="${esc(classLink(s.repo, t))}" target="_blank" rel="noopener">🔗 ${esc(t.name)}'s class link</a>`).join('\n         ')}`
-      : `<a class="btn btn-student" href="${esc(link(s.repo, STUDENT_CODE))}" target="_blank" rel="noopener">🎒 Try it as a student guest</a>`;
+    const buttons = `<a class="btn btn-teacher" href="${esc(teacherLink(s.repo))}" target="_blank" rel="noopener">🧑‍🏫 Teacher / admin view</a>
+         ${s.teachers.map(t => `<a class="btn btn-class" href="${esc(classLink(s.repo, t))}" target="_blank" rel="noopener">🔗 ${esc(t.name)}'s class link</a>`).join('\n         ')}`;
     return `<article class="card" data-repo="${esc(s.repo)}">
       <div class="tags"><span class="tag tag-${s.subject.toLowerCase()}">${esc(s.subject)}</span><span class="tag tag-kind">${esc(s.kind)}</span>${s.std ? `<span class="tag tag-std">${esc(s.std)}</span>` : ''}</div>
       <h3 class="title">${esc(s.title)}</h3>
@@ -80,6 +79,15 @@
     </article>`;
   }
 
+  window.ADMIN_PAGE = { ADMIN, SITES, TEACHER_HASH };   // the site test reads these
+  // no admin code: nothing but where to get the admin link
+  if (!ADMIN) {
+    document.getElementById('sub').textContent = 'For teachers and administrators';
+    document.getElementById('how').innerHTML = `<p class="how-head">🔒 Use the admin link</p>
+       <p class="how-note">This page opens with the admin link from Mr. Olivera. Ask him for it.</p>`;
+    return;
+  }
+
   const grades = [...new Set(shown.map(s => s.grade))].sort((a, b) => a - b);
   document.getElementById('grades').innerHTML = grades.map(g => {
     const list = shown.filter(s => s.grade === g).sort((a, b) => day(a.window[0]) - day(b.window[0]));
@@ -87,17 +95,12 @@
   }).join('');
 
   document.getElementById('sub').textContent = `Grades ${grades[0]}–${grades[grades.length - 1]} · ${shown.length} practice sites for the SBAC interim tests (IAB and FIAB)`;
-  document.getElementById('how').innerHTML = ADMIN
-    ? `<p class="how-head">On every card</p>
+  document.getElementById('how').innerHTML = `<p class="how-head">On every card</p>
        <ul>
          <li><b>🧑‍🏫 Teacher / admin view</b> — opens straight to the site's teacher screen, the page a teacher sees after Teacher Access, with no PIN: try any set as a student and see the answer key. On the Grades 3, 5 and 6 sites it also shows the class heat map with sample students. Nothing is saved or sent.</li>
          <li><b>🔗 Class links</b> — the link each teacher gives her students. Work done there saves to that teacher's score sheet, so use the teacher / admin view to look around.</li>
          <li><b>🛡️ Real student scores</b> stay behind each teacher's PIN.</li>
-       </ul>`
-    : `<p class="how-head">Student guest links</p>
-       <ul><li>Take any set the way a student does. Nothing is saved or sent.</li>
-       <li>Teachers and administrators: open the admin link from Mr. Olivera to see each site's teacher screen.</li></ul>`;
-  document.body.classList.toggle('admin', ADMIN);
-  document.title = ADMIN ? 'SBAC Practice Sites · Admin View' : 'SBAC Practice Sites';
-  window.ADMIN_PAGE = { ADMIN, SITES, TEACHER_HASH };   // the site test reads these
+       </ul>`;
+  document.body.classList.add('admin');
+  document.title = 'SBAC Practice Sites · Admin View';
 })();
