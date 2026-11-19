@@ -99,7 +99,7 @@
        <ul>
          <li><b>🧑‍🏫 Teacher / admin view</b> — opens straight to the site's teacher screen, the page a teacher sees after Teacher Access, with no PIN: try any set as a student and see the answer key. On the Grades 3, 5 and 6 sites it also shows the class heat map with sample students. Nothing is saved or sent.</li>
          <li><b>🔗 Class links</b> — the link each teacher gives her students. Work done there saves to that teacher's score sheet, so use the teacher / admin view to look around.</li>
-         <li><b>🛡️ Real student scores</b> stay behind each teacher's PIN.</li>
+         <li><b>🔒 Each teacher's PIN</b> — each teacher opens Class Scores with their own PIN in Teacher Access and sees only their own class, with real student names and scores. The teacher / admin view shows sample students only.</li>
        </ul>`;
   document.body.classList.add('admin');
   document.title = 'SBAC Practice Sites · Admin View';
