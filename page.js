@@ -30,11 +30,14 @@
     { grade: 3, subject: 'Reading', kind: 'FIAB', title: 'Make & Support Inferences (Informational)', std: 'RI.3.1–RI.3.2',
       window: ['2026-12-07', '2026-12-11'], teachers: [{ name: 'Ms. Richardson', cls: 'richardson' }, { name: 'Mrs. McKissick', cls: 'mckissick' }], repo: 'sbac-g3-inferences-info-fiab' },
     { grade: 4, subject: 'Math', kind: 'FIAB', title: 'Place Value & Multidigit Whole Numbers', std: '',
-      window: ['2026-09-14', '2026-09-18'], teachers: [{ name: 'Mr. Olivera' }], repo: 'sbac-place-value-fiab-review' },
+      window: ['2026-09-14', '2026-09-18'], teachers: [{ name: 'Mr. Olivera' }], repo: 'sbac-place-value-fiab-review',
+      ready: false },   // off the list while it is rebuilt to the newer sites' standard (Marcos 11/19)
     { grade: 4, subject: 'Reading', kind: 'FIAB', title: 'Make & Support Inferences (Literary)', std: '',
-      window: ['2026-09-28', '2026-10-02'], teachers: [{ name: 'Mr. Olivera' }], repo: 'sbac-inferences-lit-fiab-review' },
+      window: ['2026-09-28', '2026-10-02'], teachers: [{ name: 'Mr. Olivera' }], repo: 'sbac-inferences-lit-fiab-review',
+      ready: false },   // off the list while it is rebuilt to the newer sites' standard (Marcos 11/19)
     { grade: 4, subject: 'Reading', kind: 'IAB', title: 'Read Literary Texts', std: '',
-      window: ['2026-10-19', '2026-10-23'], teachers: [{ name: 'Mr. Olivera' }], repo: 'sbac-read-literary-iab-review' },
+      window: ['2026-10-19', '2026-10-23'], teachers: [{ name: 'Mr. Olivera' }], repo: 'sbac-read-literary-iab-review',
+      ready: false },   // off the list while it is rebuilt to the newer sites' standard (Marcos 11/19)
     { grade: 4, subject: 'Math', kind: 'IAB', title: 'Number & Operations in Base Ten', std: '',
       window: ['2026-11-24', '2026-12-04'], teachers: [{ name: 'Mr. Olivera' }], repo: 'sbac-base-ten-iab-review' },
     { grade: 4, subject: 'Math', kind: 'IAB', title: 'Number & Operations in Base Ten', std: '',
