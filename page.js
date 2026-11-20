@@ -11,7 +11,7 @@
 (function () {
   'use strict';
 
-  const TEACHER_HASH = 'ae786515';   // = share.js on every site
+  const TEACHER_HASH = 'ce64cc1c';   // = share.js on every site
   const STUDENT_CODE = 'mro';
   const BASE = 'https://mroteacher.com/';
   const fnv = s => {
