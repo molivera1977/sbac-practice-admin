@@ -14,8 +14,25 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, san
 .how li { color: var(--soft); line-height: 1.45; }
 .how li b { color: var(--ink); }
 .how-note { margin: 0; color: var(--soft); line-height: 1.45; }
-.made .how-note { margin: 0 0 6px; }
-.made .how-sets { margin-top: 14px; }
+.made .how-head { font-size: 1.2rem; padding-bottom: 5px; margin-bottom: 10px; border-bottom: 2px solid #ccfbf1; }
+.made .how-note { margin: 0 0 10px; }
+/* the order of the sets, under "How it runs" */
+.made .flow { margin: 0 0 4px; font-size: 1.08rem; font-weight: 800; color: var(--p); }
+.made ul { gap: 12px; }
+/* a subheading over each paragraph (his 11/19 "let's give subheadings") */
+.made h4 { margin: 0 0 2px; font-size: 1.02rem; line-height: 1.35; color: var(--ink); }
+.made .where { display: inline-block; vertical-align: 2px; margin-left: 4px; font-size: 12px; font-weight: 700; padding: 1px 9px;
+  border-radius: 999px; background: #ccfbf1; color: var(--pd); }
+.made li p { margin: 0; }
+/* each set's level, by site (his 11/19 "Be specific with what levels warm up and Review are at") */
+.made .levels { width: 100%; max-width: 640px; margin: 8px 0 6px; border-collapse: collapse; font-size: 0.95rem; table-layout: fixed; }
+.made .levels th, .made .levels td { padding: 7px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.made .levels thead th { color: var(--pd); font-size: 0.9rem; border-bottom: 2px solid #ccfbf1; }
+.made .levels tbody th { color: var(--ink); font-weight: 700; }
+.made .levels td b { display: block; color: var(--ink); }
+.made .levels td span { display: block; font-size: 0.85rem; color: var(--soft); }
+.made .levels-math { margin: 0; }
+.made .levels-math + .levels-math { margin-top: 8px; }
 .grade { margin-top: 22px; }
 .grade h2 { margin: 0 0 10px; color: #fff; font-size: 1.35rem; text-shadow: 0 1px 2px rgba(0, 0, 0, .25); }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
